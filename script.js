@@ -26,13 +26,13 @@ bgColor.addEventListener("change", ()=>{
 })
 
 
-canvas.addEventListener("mousedown", (e)=>{
+canvas.addEventListener("mousedown touchdown", (e)=>{
     isDrawing = true;
     lastX = e.offsetX;
     lastY = e.offsetY;
 })
 
-canvas.addEventListener("mousemove", (e)=>{
+canvas.addEventListener("mousemove touchmove", (e)=>{
     if(isDrawing) {
         canvasContext.beginPath();
         canvasContext.moveTo(lastX, lastY);
@@ -45,12 +45,12 @@ canvas.addEventListener("mousemove", (e)=>{
     }
 })
 
-canvas.addEventListener("mouseup", ()=>{
+canvas.addEventListener("mouseup touchup", ()=>{
     isDrawing = false;
     canvasContext.closePath();
 })
 
-canvas.addEventListener('mouseout', () => {
+canvas.addEventListener('mouseout touchout', () => {
     isDrawing = false;
     canvasContext.closePath();
 });
