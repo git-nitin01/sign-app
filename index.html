@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign App</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        main{
+            margin: 5% auto;
+            max-width: 800px;
+        }
+        .input-bar{
+            width: 200px;
+        }
+        .input-fields, .input-labels{
+            display: flex;
+            justify-content: space-around;
+        }
+        .label{
+            text-align: left;
+        }
+        .canvas-container{
+            width: 100%;
+            text-align: center;
+        }
+        #draw-area{
+            margin: 10px auto;
+            border: 2px solid black;
+        }
+        .act-btn-container{
+            display: flex;
+            justify-content: space-around;
+        }
+        .btn{
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="input-labels">
+            <label for="text-color-picker" class="label" >Text color</label>
+            <label for="bg-color-picker" class="label">Background color</label>
+            <label for="font-size-picker" class="label">Font size</label>
+        </div>
+    
+        <div class="input-fields">
+            <input type="color" id="text-color-picker" class="input-bar" value="#000000">
+            <input type="color" id="bg-color-picker" class="input-bar" value="#ffffff">
+            <select id="font-size-picker" class="input-bar">
+                <option value="2" selected>2px</option>
+                <option value="4">4px</option>
+                <option value="6">6px</option>
+                <option value="8">8px</option>
+                <option value="10">10px</option>
+            </select>
+        </div>
+        
+        <div class="canvas-container">
+            <canvas id="draw-area" height="500px" width="800px"></canvas>
+        </div>
+
+        <div class="act-btn-container">
+            <input type="button" class="btn btn-danger" value="clear canvas">
+            <input type="button" class="btn btn-success" value="save signature">
+            <input type="button" class="btn btn-primary" value="retrieve signature">
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
