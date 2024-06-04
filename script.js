@@ -10,6 +10,11 @@ var lastX = 0, lastY = 0, isDrawing = false;
 canvasContext.strokeStyle = textColor.value;
 canvasContext.lineWidth = fontSize.value;
 
+textColor.addEventListener("change", ()=>{
+    canvasContext.strokeStyle = textColor.value;
+})
+
+
 fontSize.addEventListener("change", (e)=>{
     canvasContext.lineWidth = e.target.value;
 })
