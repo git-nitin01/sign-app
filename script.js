@@ -26,13 +26,19 @@ bgColor.addEventListener("change", ()=>{
 })
 
 
-canvas.addEventListener("mousedown touchdown", (e)=>{
+canvas.addEventListener("mousedown", (e)=>{
     isDrawing = true;
     lastX = e.offsetX;
     lastY = e.offsetY;
 })
 
-canvas.addEventListener("mousemove touchmove", (e)=>{
+canvas.addEventListener("touchdown", (e)=>{
+    isDrawing = true;
+    lastX = e.offsetX;
+    lastY = e.offsetY;
+})
+
+canvas.addEventListener("mousemove", (e)=>{
     if(isDrawing) {
         canvasContext.beginPath();
         canvasContext.moveTo(lastX, lastY);
@@ -45,12 +51,35 @@ canvas.addEventListener("mousemove touchmove", (e)=>{
     }
 })
 
-canvas.addEventListener("mouseup touchup", ()=>{
+canvas.addEventListener("touchmove", (e)=>{
+    if(isDrawing) {
+        canvasContext.beginPath();
+        canvasContext.moveTo(lastX, lastY);
+        canvasContext.lineTo(e.offsetX, e.offsetY);
+        canvasContext.stroke();
+        lastX = e.offsetX;
+        lastY = e.offsetY;
+    } else {
+        return;
+    }
+})
+
+canvas.addEventListener("mouseup", ()=>{
     isDrawing = false;
     canvasContext.closePath();
 })
 
-canvas.addEventListener('mouseout touchout', () => {
+canvas.addEventListener("touchup", ()=>{
+    isDrawing = false;
+    canvasContext.closePath();
+})
+
+canvas.addEventListener('mouseout', () => {
+    isDrawing = false;
+    canvasContext.closePath();
+});
+
+canvas.addEventListener('touchout', () => {
     isDrawing = false;
     canvasContext.closePath();
 });
